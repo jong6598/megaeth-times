@@ -1,12 +1,5 @@
+import { ArticleContent } from '@/types/weeklyContent'
 import Image from 'next/image'
-
-interface ArticleContent {
-    title: string
-    date: string
-    subtitle: string
-    paragraphs: string[]
-    imageUrl: string
-}
 
 const MainArticle = ({ content }: { content: ArticleContent }) => {
     return (
@@ -39,7 +32,12 @@ const MainArticle = ({ content }: { content: ArticleContent }) => {
                     rel='noopener noreferrer'
                     className='relative aspect-video bg-gray-100'
                 >
-                    <Image src='/website.png' alt={content.title} fill className='object-cover' />
+                    <Image
+                        src={content.imageUrl}
+                        alt={content.title}
+                        fill
+                        className='object-cover'
+                    />
                 </a>
             </div>
         </article>

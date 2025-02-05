@@ -1,12 +1,5 @@
+import { Section } from '@/types/weeklyContent'
 import Image from 'next/image'
-
-interface Section {
-    title: string
-    summary?: string
-    content: string
-    imageUrl: string
-    link?: string // 옵셔널 링크 추가
-}
 
 const ContentSection = ({ section }: { section: Section }) => {
     return (

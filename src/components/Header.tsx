@@ -1,7 +1,12 @@
+import { WeeklyContent } from '@/types/weeklyContent'
 import Image from 'next/image'
 
-// components/Header.tsx
-export default function Header() {
+interface HeaderProps {
+    weeklyContents: WeeklyContent[]
+    onWeekSelect: (weekId: string) => void
+}
+
+export default function Header({ weeklyContents, onWeekSelect }: HeaderProps) {
     return (
         <header className='border-b-4 border-black py-4'>
             <div className='flex justify-between items-center'>
@@ -20,15 +25,24 @@ export default function Header() {
                 </div>
             </div>
             <div className='flex justify-around items-center my-4 border-t-4 border-black pt-4 '>
-                <div className='flex items-center h-full font-bold'>January 3rd Week, 2025</div>
-
+                <select
+                    onChange={(e) => onWeekSelect(e.target.value)}
+                    className=' font-bold bg-transparent'
+                >
+                    {weeklyContents.map((content) => (
+                        <option key={content.id} value={content.id}>
+                            {content.month} {content.week}rd Week, {content.year}
+                        </option>
+                    ))}
+                </select>
                 <a
                     href='discord.com/invite/megaeth'
-                    className='hover:opacity-75'
+                    className='hover:opacity-75 flex flex-col items-center'
                     target='_blank'
                     rel='noopener noreferrer'
                 >
                     <Image src='/discord.png' alt={'discord'} width={50} height={50} />
+                    <span className='text-sm'>discord</span>
                 </a>
                 <a
                     href='@megaeth_labs'

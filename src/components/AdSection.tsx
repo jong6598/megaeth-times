@@ -1,28 +1,18 @@
+import { AdContent } from '@/types/weeklyContent'
 import Image from 'next/image'
 
-export interface AdContent {
-    type: 'image' | 'apply'
-    title?: string
-    imageUrl?: string
-    subTitle?: string
-    imageAlt?: string
-    location?: string
-    applyLink?: string
-}
 const AdSection = ({ contents }: { contents: AdContent[] }) => {
     return (
         <section className='grid grid-cols-3 gap-6 border-t-4 border-black pt-6'>
-            {' '}
             {contents.map((content, index) => (
                 <div key={index} className='border-2 border-black p-3 flex flex-col justify-center'>
-                    {' '}
                     {content.type === 'image' ? (
-                        <div className='relative aspect-square w-full'>
+                        <div className='relative aspect-square w-full group overflow-hidden'>
                             <Image
                                 src={content.imageUrl!}
                                 alt={content.imageAlt || ''}
                                 fill
-                                className='object-contain'
+                                className='object-contain transition-transform duration-300 group-hover:scale-110'
                             />
                         </div>
                     ) : (
