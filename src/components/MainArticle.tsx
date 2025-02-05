@@ -27,7 +27,7 @@ const MainArticle = ({ content }: { content: ArticleContent }) => {
                     ))}
                 </div>
                 <a
-                    href='https://www.megaeth.com'
+                    href={content.websiteUrl}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='relative aspect-video bg-gray-100'
