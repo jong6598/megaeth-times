@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'MEGA-ETH TIMES',
     description: "THE WORLD COMPUTER IS NOT JUST A VISION: IT'S A CALL TO ACTION",
     icons: {
-        icon: '/favicon.ico',
+        icon: 'rabbit.png',
     },
 }
 
@@ -28,7 +28,7 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-7xl mx-auto px-4 min-h-screen font-sans text-black bg-[#FDFDFD] `}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-7xl mx-auto px-4 min-h-screen font-sans text-black bg-[#FDFDFD] py-8`}
             >
                 {children}
             </body>

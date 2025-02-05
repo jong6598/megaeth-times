@@ -1,6 +1,5 @@
 import Image from 'next/image'
 
-// types/article.ts
 interface ArticleContent {
     title: string
     date: string
@@ -9,20 +8,18 @@ interface ArticleContent {
     imageUrl: string
 }
 
-// components/articles/MainArticle.tsx
 const MainArticle = ({ content }: { content: ArticleContent }) => {
     return (
-        <article className='space-y-8'>
+        <article className='space-y-8 border-b-4 border-black py-4'>
             <div className='space-y-4 text-center'>
                 <h1 className='text-6xl font-bold tracking-tight'>{content.title}</h1>
                 <div className='flex justify-between text-sm'>
                     <time>{content.date}</time>
-                    <span>{content.subtitle}</span>
                 </div>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-                <div className='prose max-w-none'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-center'>
+                <div className='prose max-w-none flex flex-col justify-center'>
                     {content.paragraphs.map((paragraph, index) => (
                         <p
                             key={index}
@@ -36,19 +33,16 @@ const MainArticle = ({ content }: { content: ArticleContent }) => {
                         </p>
                     ))}
                 </div>
-                <div className='relative aspect-video bg-gray-100'>
-                    <Image
-                        src={'/public/website.png'}
-                        alt={content.title}
-                        fill
-                        className='object-cover'
-                    />
-                </div>
+                <a
+                    href='https://www.megaeth.com'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='relative aspect-video bg-gray-100'
+                >
+                    <Image src='/website.png' alt={content.title} fill className='object-cover' />
+                </a>
             </div>
         </article>
     )
 }
-
 export default MainArticle
-
-// 사용 예시:
