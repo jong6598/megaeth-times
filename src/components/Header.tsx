@@ -20,7 +20,7 @@ export default function Header() {
                 </div>
             </div>
             <div className='flex justify-around items-center my-4 border-t-4 border-black pt-4 '>
-                <div className='flex items-center h-full font-bold'>Weekly 3, Jan, 2025</div>
+                <div className='flex items-center h-full font-bold'>January 3rd Week, 2025</div>
 
                 <a
                     href='discord.com/invite/megaeth'
